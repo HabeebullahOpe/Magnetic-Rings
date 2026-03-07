@@ -1,28 +1,137 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
+html,
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
+  width: 100%;
+  height: 100%;
+  background: #02040a;
+  overflow: hidden;
+  font-family: "Share Tech Mono", monospace;
+  cursor: none;
 }
 
-.room {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+canvas {
+  display: block;
+  position: fixed;
+  inset: 0;
 }
 
-.foot {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    /* background-color: #ffffff; */
-    box-shadow: 0 0 40px #7aa8ff, 0 0 10px #7aa8ff;
+/* custom cursor */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(100, 180, 255, 0.5);
+  pointer-events: none;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.15s,
+    height 0.15s,
+    border-color 0.15s;
+}
+.cursor.grab {
+  width: 24px;
+  height: 24px;
+  border-color: rgba(100, 180, 255, 0.9);
+  background: rgba(100, 180, 255, 0.05);
 }
 
+/* UI */
+.ui {
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.top-left {
+  top: 24px;
+  left: 28px;
+}
+.title {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 13px;
+  color: rgba(100, 180, 255, 0.25);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+.subtitle {
+  font-size: 9px;
+  color: rgba(100, 180, 255, 0.1);
+  letter-spacing: 0.2em;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.top-right {
+  top: 24px;
+  right: 28px;
+  text-align: right;
+}
+.stat {
+  font-size: 9px;
+  color: rgba(100, 180, 255, 0.18);
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.stat span {
+  color: rgba(100, 180, 255, 0.55);
+}
+
+.bottom-center {
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.hint {
+  font-size: 9px;
+  color: rgba(100, 180, 255, 0.12);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: opacity 2s ease;
+}
+
+/* merge flash overlay */
+#flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(80, 160, 255, 0);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* controls */
+.controls {
+  position: fixed;
+  bottom: 22px;
+  right: 24px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  padding: 7px 14px;
+  border: 1px solid rgba(100, 180, 255, 0.12);
+  background: rgba(100, 180, 255, 0.03);
+  color: rgba(100, 180, 255, 0.3);
+  cursor: none;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn:hover {
+  border-color: rgba(100, 180, 255, 0.35);
+  color: rgba(100, 180, 255, 0.7);
+  background: rgba(100, 180, 255, 0.06);
+}

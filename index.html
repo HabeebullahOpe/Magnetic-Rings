@@ -1,35 +1,39 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Gallery</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <canvas id="canvas"></canvas>
     <div id="flash"></div>
     <div class="cursor" id="cursor"></div>
 
     <div class="ui top-left">
-        <div class="title">Magnetic Rings</div>
-        <div>drag | throw | release</div>
+      <div class="title">Magnetic Rings</div>
+      <div>drag | throw | release</div>
     </div>
 
     <div class="ui top-right">
-        <div class="stat">distance <span id="statDist">-</span></div>
-        <div class="stat">force <span id="statForce">-</span></div>
-        <div class="stat">state <span id="statState">drifting</span></div>
+      <div class="stat">distance <span id="statDist">-</span></div>
+      <div class="stat">force <span id="statForce">-</span></div>
+      <div class="stat">state <span id="statState">drifting</span></div>
     </div>
 
     <div class="ui bottom-center">
-        <div class="hint" id="hint">click a ring to grab it</div>
+      <div class="hint" id="hint">click a ring to grab it</div>
     </div>
 
     <div class="controls">
-        <button class="btn" id="resetBtn">reset</button>
-        <button class="btn" id="saveBtn">capture</button>
+      <button class="btn" id="resetBtn">reset</button>
+      <button class="btn" id="saveBtn">capture</button>
     </div>
-    
+
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
