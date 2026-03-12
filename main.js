@@ -42,22 +42,22 @@ class Ring {
       const r = this.radius + this.lineWidth;
       if (this.x - r < 0) {
         this.x = r;
-        this.vx *= -0.72;
+        this.vx *= -0.85;
         spawnBounceParticles(this.x, this.y, this.glowColor);
       }
       if (this.x + r > W) {
         this.x = W - r;
-        this.vx *= -0.72;
+        this.vx *= -0.85;
         spawnBounceParticles(this.x, this.y, this.glowColor);
       }
       if (this.y - r < 0) {
         this.y = r;
-        this.vy *= -0.72;
+        this.vy *= -0.85;
         spawnBounceParticles(this.x, this.y, this.glowColor);
       }
       if (this.y + r > H) {
         this.y = H - r;
-        this.vy *= -0.72;
+        this.vy *= -0.85;
         spawnBounceParticles(this.x, this.y, this.glowColor);
       }
       // more drag on mobile for control
